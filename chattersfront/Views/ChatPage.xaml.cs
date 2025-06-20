@@ -1,4 +1,4 @@
-using Microsoft.Maui.ApplicationModel;    // MainThread
+using Microsoft.Maui.ApplicationModel;
 using chattersfront.Services;
 using chattersfront.Models;
 
@@ -15,17 +15,15 @@ public partial class ChatPage : ContentPage
         _chat = chat;
         _auth = auth;
 
-        // Podpinamy odbiór wiadomoœci
         _chat.MessageReceived += msg =>
             MainThread.BeginInvokeOnMainThread(() =>
                 MessagesList.Children.Add(
                     new Label { Text = $"{msg.Sender}: {msg.Text}" }));
 
-        // Startujemy po³¹czenie SignalR
         _ = _chat.ConnectAsync(_auth.Token!);
     }
 
-    async void OnSendClicked(object sender, EventArgs e)
+    async void OnSendClicked(object s, EventArgs e)
     {
         await _chat.SendMessageAsync(MsgEntry.Text);
         MsgEntry.Text = "";
