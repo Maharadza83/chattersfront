@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="chattersfront.Views.LoginPage"
+    Title="Logowanie">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Entry   x:Name="EmailEntry"    Placeholder="Email" />
+        <Entry   x:Name="PasswordEntry" Placeholder="Hasło" IsPassword="True" />
+        <Button  Text="Zaloguj"         Clicked="OnLoginClicked" />
+        <Button  Text="Rejestracja"     Clicked="OnRegisterClicked" />
+    </VerticalStackLayout>
+</ContentPage>
